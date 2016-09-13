@@ -1,0 +1,150 @@
+body,html{
+    height: 100%;
+    width: 100%;
+}
+.bg{
+    position: absolute;
+    background: url(../images/wallpaper.jpg);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.register{
+    width: 980px;
+    /*height: 200px;*/
+    position: absolute;
+    left: 50%;
+    margin-left: -475px;
+    bottom: 120px;
+    /*background-color: pink;*/
+}
+.register .title{
+    display: block;
+    width: 125px;
+    height: 50px;
+    padding-left: 20px;
+}
+.register .content{
+    padding: 30px 20px;
+    background-color: #F9F9F9;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+}
+.register .content h2{
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    width: 85px;
+    text-align: center;
+    padding-bottom: 2px;
+    border-bottom: 6px solid #75C50A;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+.register .content .loginIn li{
+    height: 60px;
+}
+
+.register .content .loginIn{
+    float: left;
+    width: 430px;
+    padding: 0 20px;
+    border-right: 1px solid #CCCCCC;
+    font-size: 16px;
+}
+.register .content .loginIn label{
+    letter-spacing: 1px;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    float: left;
+}
+.register .content form input{
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    border-radius:5px;
+    color: #CCCCCC;
+    border: 1px solid #CCCCCC;
+    background-color: #fff;
+    display: block;
+    float: left;
+}
+.register .content form input[type=submit]{
+    width: 115px;
+    text-align: center;
+    margin-left: 123px;
+    background-color: #75C50A;
+    color: #fff;
+    letter-spacing: 4px;
+    border: none;
+    font-weight: 500;
+    font-weight: 600;
+    cursor: pointer;
+}
+.register .content .quick{
+    float: right;
+    width: 427px;
+    padding: 0 20px;
+
+}
+.register .content .quick h2{
+    margin-left: 20px;
+}
+.register .content .quick ul{
+    overflow: hidden;
+    margin-left: 17px;
+}
+
+.register .content .quick li{
+    width: 140px;
+    height: 40px;
+    /*margin-right: 40px;*/
+    float: left;
+    margin: 0 15px 20px 0;
+}
+.register .content .quick li a{
+    height: 40px;
+    display: block;
+    background: url(../images/head.png) no-repeat;
+}
+.register .content .quick li a.qq{
+    width: 140px;
+    background-position:-303px -122px;
+}
+.register .content .quick li a.weibo{
+    width: 172px;
+    background-position:-463px -122px;
+}
+.register .content .quick li a.tb{
+    width: 140px;
+    background-position: -303px -178px;
+}
+.register .content .quick li a.tx{
+    width: 172px;
+    background-position: -463px -178px;
+}
+.register .content .quick li a.db{
+    width: 140px;
+    background-position: -303px -234px;
+}
+.register .content .quick p{
+    margin-top: 20px;
+    text-align: right;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+.footer{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+.footer p{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #CCCCCC;
+}

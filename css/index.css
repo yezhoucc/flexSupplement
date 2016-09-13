@@ -1,0 +1,778 @@
+/*mask蒙版设置头像*/
+.picMask{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	display: none;
+}
+.picShow{
+	/*margin: 50px auto;*/
+	width: 500px;
+	height: 500px;
+	background-color: #fff;
+	position: absolute;
+	top: 30px;
+	left: 33%;
+	/*margin-left: -250px;*/
+	z-index: 999;
+	border: 2px solid #000;
+	display: none;
+	
+}
+.picShow .title{
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0 15px;
+}
+.picShow .title h3{
+	font-size: 15px;
+	float: left;
+	font-weight: 600;
+}
+.picShow .title a{
+	display: inline-block;
+	float: right;
+	color: #666;
+	font-size: 16px;
+}
+.picShow .content{
+	padding: 0 15px;
+	overflow: hidden;
+}
+.picShow .content .showLocal{
+	height: 60px;
+	line-height: 60px;
+
+}
+.picShow .content .showLocal ul{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+}
+.picShow .content .showLocal ul li{
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	border: 1px solid #CCCCCC;
+	line-height: 30px;
+}
+.picShow .content .showLocal ul li.active{
+	border-bottom: 2px solid orange;
+}
+.showContent{
+	width: 470px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+.showContent .showReact{
+	/*/!*width: 1000px;*!/*/
+	/*height: 300px;*/
+	/*width: 470px;*/
+	/*/!*background-color: pink;*!/*/
+	/*position: absolute;*/
+}
+.showContent .showReact li{
+	/*float: left;*/
+	width: 470px;
+	height: 300px;
+	display: none;
+	/*display: block;*/
+}
+.showContent .showReact li.active{
+	display: block;
+}
+.showContent .showReact li .picContainer{
+	width: 300px;
+	height: 300px;
+	background-color: #CCCCCC;
+	text-align: center;
+	line-height: 300px;
+	float: left;
+	/*display: none;*/
+	/*z-index: 4;*/
+	/*position: relative;*/
+}
+/*.showContent .picContainer .loadImg{*/
+	/*position: absolute;*/
+	/*width: 300px;*/
+	/*height: 200px;*/
+	/*/!*background-color: #38AA30;*!/*/
+	/*left: 0;*/
+	/*top: 50px;*/
+	/*/!*z-index: 9;*!/*/
+	/*display: none;*/
+/*}*/
+#background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+#selector{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.showContent .showReact li .picContainer span{
+	display: block;
+	margin-top: 30px;
+	color: #808080;
+	font-size: 12px;
+}
+.showContent .showReact li .picContainer .addPic {
+	padding: 4px 10px;
+	height: 20px;
+	width: 53px;
+	line-height: 20px;
+	position: relative;
+	cursor: pointer;
+	color: #888;
+	background: #fafafa;
+	border-radius: 4px;
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+	overflow: hidden;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+#clickButton{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+/*.showContent .showReact li .picContainer .addPic   input {*/
+	/*position: absolute;*/
+	/*font-size: 100px;*/
+	/*right: 0;*/
+	/*top: 0;*/
+	/*opacity: 0;*/
+	/*filter: alpha(opacity=0);*/
+	/*cursor: pointer*/
+/*}*/
+#file{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+	outline: medium none;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	opacity: 0;
+
+	/*z-index: 9;*/
+}
+#clickButton{
+	position: absolute;
+
+}
+/*#file:after{*/
+	/*content: '选择图片';*/
+	/*display: block;*/
+	/*width: 60px;*/
+	/*height: 20px;*/
+	/*position: absolute;*/
+/*}*/
+.showContent .showContainer{
+	float: right;
+	width: 130px;
+	height: 270px;
+	padding: 15px 10px;
+	background-color: #CCCCCC;
+	text-align: center;
+}
+.showContent .showContainer .title{
+	text-align: center;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+}
+.showContent .showContainer .canvasBig{
+	background: #606060;
+	width: 100px;
+	height: 100px;
+	/*border-radius:50%;*/
+	margin: 0 20px;
+	position: relative;
+}
+#preview{
+	width: 100px;
+	height: 100px;
+	border-radius:50%;
+	position: absolute;
+	left: 0;
+}
+#imgElem{
+	width: 80px;
+	height: 80px;
+	border-radius:50%;
+}
+.showContent .showContainer .canvasMiddle{
+	background: #606060;
+	width: 80px;
+	height: 80px;
+	/*border-radius:50%;*/
+	/*font-size: 10px;*/
+	font-size:11px;-webkit-transform:scale(0.8);
+	margin: 5px auto;
+}
+.showContent .showContainer .canvasMiddle span{
+	position: absolute;
+	top: 0;
+	left: -1px;
+}
+.showContent .showContainer .canvasSmall{
+	background: #606060;
+	width: 50px;
+	height: 50px;
+	font-size:9px;-webkit-transform:scale(0.8);
+	/*border-radius:50%;*/
+	margin: 5px auto;
+}
+.showContent .showContainer .canvasSmall span{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#imgSmall{
+	width: 50px;
+	height: 50px;
+	border-radius:50%;
+}
+.picShow .footer{
+	width: 100%;
+	height: 75px;
+	line-height: 75px;
+	background-color: #CCCCCC;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.picShow .footer button{
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.picShow .footer button.active{
+	color: #fff;
+	background: orangered;
+}
+/*topbar开始*/
+.topbar{
+	width: 100%;
+	height: 35px;
+	background-color: #000000;
+	line-height: 35px;
+	z-index:9;
+
+}
+
+.topbar div,ul{
+	overflow: hidden;
+}
+.topbar ul li{
+	height: 35px;
+	line-height: 35px;
+	color: #B4B4B4;
+	font-size:13px;
+	padding-right: 12px;
+	float: left;
+}
+.topbar ul li a{
+	color: #B4B4B4;
+}
+.topbar a:hover{
+	color:#fff;
+}
+.topbar .right .letter{
+	width: 24px;
+	height: 26px;
+	background: url(../images/head.png) -111px -183px;
+	display: inline-block;
+}
+.topbar .right .letter:hover{
+	background: url(../images/head.png) -144px -199px;
+}
+.topbar .right .sound{
+	width: 25px;
+	height: 28px;
+	background: url(../images/head.png) -1px -190px;
+	display: inline-block;
+	margin-top: 5px;
+}
+.topbar .right .sound:hover{
+	background: url(../images/head.png)-32px -206px;
+}
+.topbar .right img{
+	margin-top: 3px;
+}
+/*topbar 结束*/
+
+/*nav开始*/
+.nav{
+	width: 100%;
+	overflow: hidden;
+	padding: 6px 0;
+	border-bottom:1px solid #CCCCCC;
+	background: url(../images/bg.jpg);
+}
+.nav.fixed{
+	position: fixed;
+	top: 0;
+	z-index: 9;
+}
+.nav .w{
+	overflow: hidden;
+}
+.nav .title{
+	float: left;
+}
+.nav .title a{
+	width: 125px;
+	height: 50px;
+	background: url(../images/logo.png) no-repeat;
+	display: block;
+	line-height: 1;
+	/*padding: 10px 0;*/
+}
+.nav .navtitle{
+	margin-left: 25px;
+}
+.nav .navtitle li{
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 12px 0 7px;
+	background: url(../images/nav-line.png) no-repeat right 17px;
+
+}
+.nav .navtitle li a{
+	font-size: 16px;
+	color:#606060; 
+	margin: 0 8px;
+}
+.nav .navtitle li a.extra{
+	font-size: 18px;
+}
+.nav .navtitle li a:hover{
+	color: orange;
+}
+.nav .search {
+	height: 32px;
+	margin-top: 14px;
+	/*width: 148px;*/
+	border:1px solid #CCCCCC;
+	/*margin-right: 15px;*/
+	/*overflow: hidden;*/
+}
+.nav .search input{
+	width: 168px;
+	height: 26px;
+	background-color: #fff;
+
+}
+.nav .search button{
+	height: 31px;
+	width: 22px;
+	background-color: #fff;
+	background: url(../images/head.png) -114px -126px;
+}
+/*.nav .navtitle li a*/
+.line{
+	width: 100%;
+	height: 3px;
+	background: url(../images/bg-line.png);
+}
+/*nav结束*/
+/*section开始*/
+section{
+	padding:20px 0;
+}
+/*轮播图*/
+section .slider{
+	padding:10px 10px 15px 10px;
+	background: #fff url(../images/shadow-line.jpg) repeat-x 0 bottom;
+	width: 710px;
+	overflow: hidden;
+	height: 355px;
+
+}
+section .slider .v{
+	width: 710px;
+	height: 359px;
+	overflow: hidden;
+	position: relative;
+}
+section .wrap{
+	overflow: hidden;
+	width: 7810px;
+	height: 359px;
+	position: absolute;
+	left: 0;
+
+}
+section .wrap a{
+	float: left;
+}
+section .slider .smallPics{
+	position: absolute;
+	bottom: 4px;
+	background: rgba(0,0,0,0.8);
+	padding: 10px 0;
+	width: 100%;
+	height: 35px;
+	display: none;
+}
+section .smallPics li{
+	float: left;
+	margin: 0 5px;
+}
+/*轮播图结束*/
+
+/*生活开始*/
+section .sec{
+	width: 710px;
+	padding: 5px 10px 10px 10px;
+	background-color: #F9F9F9;
+	margin-top: 15px;
+
+}
+section .sec .title{	
+	/*padding: 5px 0 5px 10px;*/
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	border-bottom: 1px solid #CCCCCC;
+}
+section .sec .title h3{
+	font-size: 20px;
+	/*line-height: 1;*/
+	font-weight: bold;
+	color: #75C50A;
+	letter-spacing: 1px;
+	padding-left: 15px;
+}
+section .sec .title a{
+	font-size: 13px;
+	color: #606060;
+	letter-spacing: 1px;
+}
+section .sec .content{
+	padding: 10px 0 2px;
+	text-align: center;
+}
+section .sec .content li{
+	padding: 10px;
+	height: 166px;
+	width: 208px;
+	background: url(../images/shadow-bg.png);
+	margin: 3px;
+	float: left;
+	border: 1px solid transparent;
+	position: relative;
+}
+section .sec .cover{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 227px;
+	height: 177px;
+	border: 1px solid #CCCCCC;
+	display: none;
+}
+/*section .sec .content li.current{*/
+	/*border: 1px solid #CCCCCC;*/
+	/*border-bottom: 1px solid transparent;*/
+/*}*/
+/*生活开始*/
+/*section 右边 每日推荐*/
+section .sider{
+	width: 240px;
+}
+
+/*section结束*/
+section .sider .block{
+	padding: 5px 10px 10px;
+	background: #F9F9F9;
+	height: 360px;
+	margin-bottom: 20px;
+}
+section .sider .title{
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #CCCCCC;
+}
+section .sider .title h2{
+	padding-left: 10px;
+}
+section .sider .title h2 a{
+    font-size: 20px;
+    color: #75C50A;
+    font-weight: bold;
+}
+section .sider .content{
+	text-align: center;
+	padding: 10px 0 0 0; 
+
+}
+section .sider .content img{
+	display: block;
+	margin: 0 auto;
+}
+section .sider .content h3{
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 13px;
+	margin: 10px 0 5px 5px;
+	text-align: left;
+	color: #000;
+}
+section .sider .block .content p{
+	line-height: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-indent: 20px;
+    padding: 0 5px;
+	display: none;
+}
+section .sider .tag{
+	height: 220px;
+	padding: 5px 10px 10px 10px;
+	box-sizing: border-box;
+	background-color: #F9F9F9;
+	margin-bottom: 15px;
+}
+section .sider .title h3{
+	font-size: 15px;
+	color:#75C50A;
+	 padding-left: 10px;
+	 font-weight: bold;
+	 float: left;
+
+}
+section .sider ul{
+	overflow: hidden;
+}
+section .sider .tag ul li{
+	float: left;
+	height: 23px;
+	line-height: 23px;
+	margin: 3px;
+}
+section .sider li .level1{
+	font-size: 23px;
+	color: orange;
+}
+section .sider li .level2{
+	font-size: 15px;
+    color: #606060;
+}
+section .sider li .level3{
+	font-size: 18px;
+    color: #75C50A;
+}
+/*throught开始*/
+section .sider .thought{
+	padding: 5px 10px 15px;
+	background: #F9F9F9;
+	margin-bottom: 15px;
+}
+section .sider .more{
+	float: right;
+	font-size: 13px;
+}
+section .sider .thought .content{
+	padding: 0;
+}
+section .sider .thought .outer{
+	margin: 10px 5px 0;
+	height: 252px;
+	overflow: hidden;
+	position: relative;
+}
+section .sider .thought .wbmove{
+	position: absolute;
+	bottom: 0;
+}
+section .sider .user{
+	overflow: hidden;
+	padding-bottom: 10px;
+	border-bottom:1px dashed #CCCCCC;
+}
+section .sider .user img{
+	margin-left: 5px;
+	float: left;
+}
+section .sider .user h4{
+	width: 100px;
+	margin-left: 10px;
+	font-weight: bold;
+	float: left;
+	text-align: left;
+
+}
+section .sider .user p{
+	margin: 10px 8px 0 8px;
+	line-height: 18px;
+	float: left;
+}
+section .sider .userThought p{
+	padding: 5px 0;
+	line-height: 18px;
+	margin-bottom: 10px;
+	text-align: left;
+	/*text-indent: 20px;*/
+}
+/*topact开始*/
+section .sider .topact{
+	height: 260px;
+	background: #F9F9F9;
+	padding: 5px 10px 10px;	
+	margin-bottom: 15px;
+}
+
+section .sider .topact p{
+	margin-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCCCCC;
+}
+section .sider .topact p:nth-child(3){
+	border-bottom: none;
+	/*padding-left: 6px;*/
+	font-size: 13px;
+}
+
+/*旅行开始*/
+section .sider .travel{
+	margin-bottom: 15px;
+	height: 265px;
+	background-color: #F9F9F9;
+	padding: 5px 10px 15px 10px;
+}
+section .sider .travel p{
+	float: left;
+	width: 100px;
+	font-weight: bold;
+	text-indent: 0;
+	letter-spacing: 0;
+	padding: 0;
+	margin-left: 10px;
+	font-weight: normal;
+	margin-top: 10px;
+	text-align: left;
+}
+section .sider .travel a{
+	/*color: #606060;*/
+}
+section .sider .travel ul{
+	margin-top: 3px;
+}
+section .sider .travel li{
+	line-height: 15px;
+	font-size: 13px;
+	padding: 5px 5px 5px 10px;
+	border-bottom: 1px dashed #CCCCCC;
+	text-align: left;
+}
+
+/*active开始*/
+section .sider .active{
+	height: 385px;
+	padding: 5px 10px 10px 10px;
+	background: #F9F9F9;
+	margin-bottom: 15px;
+}
+section .sider .active .user{
+	padding-top: 10px;
+}
+section .sider .active .user p{
+	color: #B4B4B4;
+}
+
+/*focus开始*/
+section .sider .focus{
+	height: 260px;
+	background: #F9F9F9;
+	padding: 5px 10px 10px 10px;
+}
+section .sider .focus .content{
+	height: 211px;
+	margin-top: 10px;
+	padding: 0;
+	border: 1px solid #E5E5E5;
+	border-top: none;
+}
+section .sider .focus .content a{
+	width: 109px;
+	height: 71px;
+	float: left;
+	display: block;	
+	/*border-collapse: */
+}
+section .sider .focus .content a:nth-child(1){
+	background: url(../images/sites.png) no-repeat -222px 0;
+}
+section .sider .focus .content a:nth-child(2){
+	background: url(../images/sites.png) no-repeat -333px -140px;
+}
+section .sider .focus .content a:nth-child(3){
+	background: url(../images/sites.png) no-repeat -222px -71px;
+}
+section .sider .focus .content a:nth-child(4){
+	background: url(../images/sites.png) no-repeat -333px -71px;
+}
+section .sider .focus .content a:nth-child(5){
+	background: url(../images/sites.png) no-repeat -225px -141px;
+}
+section .sider .focus .content a:nth-child(6){
+	background: url(../images/sites.png) no-repeat -221px -211px;
+}
+section .sider .focus .content a:nth-child(1):hover{
+	background-position: 0 0; 
+}
+section .sider .focus .content a:nth-child(2):hover{
+	background-position: -111px -140px;
+}
+section .sider .focus .content a:nth-child(3):hover{
+	background-position: 0 -71px;
+}
+section .sider .focus .content a:nth-child(4):hover{
+	background-position: -111px -71px;
+}
+section .sider .focus .content a:nth-child(5):hover{
+	background-position: -3px -141px;
+}
+section .sider .focus .content a:nth-child(6):hover{
+	background-position: 2px -211px;
+}
+
+footer{
+	padding: 10px 0;
+	text-align: center;
+	font-size: 14px;
+	/*border-top: 1px solid #666*/
+}
+footer .line{
+	width: 100%;
+	height: 3px;
+	background: url(../images/bg-line.png);
+	border-bottom: 1px solid #CCCCCC;
+}
+footer p{
+	margin: 5px 0;
+	/*margin-top: 10px;*/
+	line-height: 25px;
+}
