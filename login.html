@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css"/>
+    <style>
+        #cvs{
+            position: absolute;
+            top: 50px;
+            left: 170px;
+            /*border: 1px solid #000;*/
+            z-index: 9;
+        }
+        /*#cvs1{*/
+            /*position: absolute;*/
+            /*top: 200px;*/
+            /*left: 350px;*/
+
+            /*background-color: transparent;*/
+            /*z-index: 99;*/
+        /*}*/
+    </style>
+    <script src='js/konva.js'></script>
+</head>
+<body>
+
+    <canvas width="980" height="500" id="cvs"></canvas>
+    <!--<canvas width="600" height="200" id="cvs1"></canvas>-->
+    <div class="bg"></div>
+    <div class="container">
+        <div class="title">
+            <a href="index.html"></a>
+        </div>
+        <div class="content">
+            <div class="more">
+                <h3>发现更多精彩!</h3>
+                <ul>
+                    <li><img width="200px" src="upload/log1.jpg" alt=""/></li>
+                    <li><img width="300px" src="upload/log2.jpg" alt=""/></li>
+                    <li class="last"><img width="150px" src="upload/log3.jpg" alt=""/></li>
+                    <li class="last"><img width="150px" src="upload/log4.jpg" alt=""/></li>
+                </ul>
+            </div>
+            <div class="login">
+                <form action="">
+                    <h2>用户登录</h2>
+                    <ul>
+                        <li><input placeholder="微博账号/QQ号码/电子邮箱" type="text"/></li>
+                        <li><input placeholder="密码" type="text"/></li>
+                        <li>
+                            <input value="登录" type="button"/>
+                            <input type="checkbox"/><span>下次自动登录</span>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                    <div class="extra">
+                        <a href="#">忘记密码?</a>|
+                        <a href="register.html">注册新账号</a>|
+                        <a href="#">意见反馈</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>网站开发测试中...</p>
+        <p>版权所有 爱旅行 www.ailvxing.cc</p>
+    </div>
+    <!--<script>-->
+        <!--var cvs1 = document.getElementById('cvs1');-->
+        <!--var ctx = cvs1.getContext('2d');-->
+        <!--ctx.font = '40px "微软雅黑"';-->
+        <!--ctx.fillStyle = "red";-->
+        <!--ctx.textBaseline = "top";-->
+        <!--ctx.fillText("发现更多精彩", 300, 300);-->
+    <!--</script>-->
+    <script>
+        var cvs = document.getElementById('cvs');
+        var ctx = cvs.getContext('2d');
+        var img = new Image();
+        img.src = 'images/mb.jpg';
+//        ctx.font = '40px "微软雅黑"';
+//        ctx.fillStyle = "red";
+//        ctx.textBaseline = "top";
+//        ctx.fillText("发现更多精彩", 300, 300);
+
+//        img.width = '960';
+        img.addEventListener('load',function(){
+            ctx.drawImage(img,0,0);
+            //把图擦掉可以看到后面的登录页
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.lineWidth = 45;
+            ctx.lineCap = 'round';
+            var x= 0,y=0;
+            cvs.addEventListener('mousedown',function(evt){
+                var x = evt.layerX;
+                var y = evt.layerY;
+                ctx.moveTo(x,y)
+            });
+            cvs.addEventListener('mousemove',function(evt){
+                var x = evt.layerX;
+                var y = evt.layerY;
+                if(evt.which === 1){
+                    ctx.lineTo(x,y);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(x,y);
+                }
+            });
+            cvs.addEventListener('mouseup',function(evt){
+                var imgData = ctx.getImageData(0,0,980,500);
+                var count = 0;
+                for(var i = 3; i<imgData.data.length;i+=4){
+                    var a = imgData.data[i];
+                    if(a>=255){
+                        count++;
+                    }
+
+                }
+                var temp = count/(980*500);
+                console.log(temp);
+                if(temp<0.5){
+                    cvs.style.display= 'none';
+                    cvs1.style.display = 'none';
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>

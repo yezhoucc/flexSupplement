@@ -1,0 +1,27 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="js/jquery.Jcrop.js"/>
+</head>
+<body>
+<img id="element_id" src="pool.jpg" alt=""/>
+<input type="file" id="element">
+<script src="js/jquery.min.js"></script>
+
+<script src="js/jquery.Jcrop.js"></script>
+<script>
+    $('#element_id').Jcrop({
+        allowSelect:true,
+        allowMove:true,
+        allowResize:true,
+
+
+    }, function () {
+        jcropApi = this;
+
+    });
+</script>
+</body>
+</html>
